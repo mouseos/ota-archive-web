@@ -49,9 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
       var url = window.DEVICES_BASE + encodeURIComponent(e.group) + "/" + encodeURIComponent(e.model) + "/";
       var cnt = fwTpl.replace("{n}", e.firmwareCount == null ? "" : e.firmwareCount);
       var sub = [e.manufacturer, cnt, e.latestSecurityPatch].filter(Boolean).map(esc).join(" · ");
-      return '<div class="s12 m6 l4"><article class="border no-elevate"><a href="' + url +
-        '"><h6 class="small">' + esc(e.displayModel || e.model) + "</h6>" +
-        '<div class="small-text secondary-text">' + sub + "</div></a></article></div>";
+      return '<div class="s12 m6 l4"><article class="round border card-link"><a href="' + url +
+        '"><nav class="no-space"><i>smartphone</i><h6 class="small max">' + esc(e.displayModel || e.model) +
+        '</h6><i>arrow_forward</i></nav><p class="small-text muted">' + sub + "</p></a></article></div>";
     }).join("");
   }
 

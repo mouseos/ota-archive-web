@@ -1,11 +1,11 @@
 {{ define "main" }}
-<h4 class="small top-margin">{{ i18n "nav_search" }}</h4>
-<div class="field label prefix round fill large-width">
-  <i class="front">search</i>
+<h4 class="small">{{ i18n "nav_search" }}</h4>
+<div class="field label prefix round fill">
+  <i>search</i>
   <input id="q" type="text" autocomplete="off" autofocus>
   <label>{{ i18n "search_placeholder" }}</label>
 </div>
-<p id="hint" class="secondary-text">{{ i18n "search_hint" }}</p>
+<p id="hint" class="muted">{{ i18n "search_hint" }}</p>
 <div id="results" class="grid"></div>
 <span id="i18nFirmware" hidden>{{ i18n "firmware_count" (dict "count" "{n}") }}</span>
 <span id="i18nNoResults" hidden>{{ i18n "search_no_results" }}</span>

@@ -58,3 +58,6 @@ other = "検証済み"
 other = "データは ota-archive リポジトリから jsDelivr 経由で配信されています。"
 [updated]
 other = "ビルド日"
+
+[model_count]
+other = "{{ .count }} 機種"

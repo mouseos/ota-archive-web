@@ -1,15 +1,13 @@
-<header>
+<header class="fixed surface-container">
   <nav>
-    <a href="{{ "" | relLangURL }}" class="circle transparent"><i>android</i></a>
-    <h6 class="max"><a href="{{ "" | relLangURL }}">{{ i18n "site_title" }}</a></h6>
+    <a href="{{ "" | relLangURL }}" class="button circle transparent"><i>android</i></a>
+    <h6 class="max small"><a href="{{ "" | relLangURL }}">{{ i18n "site_title" }}</a></h6>
     <a class="button transparent" href="{{ "devices/" | relLangURL }}"><i>devices</i><span class="m l">{{ i18n "nav_devices" }}</span></a>
     <a class="button transparent" href="{{ "search/" | relLangURL }}"><i>search</i><span class="m l">{{ i18n "nav_search" }}</span></a>
-    <button class="circle transparent" onclick="toggleMode()" title="theme"><i>contrast</i></button>
-    <button class="circle transparent" title="language"><i>translate</i>
+    <button class="button circle transparent" onclick="toggleMode()" aria-label="theme"><i>contrast</i></button>
+    <button class="button circle transparent" aria-label="language"><i>translate</i>
       <menu class="no-wrap right">
-        {{ range .AllTranslations }}
-        <a href="{{ .Permalink }}">{{ .Site.Language.LanguageName }}</a>
-        {{- end }}
+        {{ range .AllTranslations }}<a href="{{ .Permalink }}">{{ .Site.Language.LanguageName }}</a>{{ end }}
       </menu>
     </button>
   </nav>

@@ -58,3 +58,6 @@ other = "已验证"
 other = "数据通过 jsDelivr 从 ota-archive 仓库提供。"
 [updated]
 other = "构建日期"
+
+[model_count]
+other = "{{ .count }} 款"

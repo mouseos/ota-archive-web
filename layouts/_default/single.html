@@ -1,33 +1,35 @@
 {{ define "main" }}
-<nav class="small-padding">
+<nav class="wrap">
   <a href="{{ .Parent.Permalink }}" class="button transparent"><i>arrow_back</i><span>{{ .Params.displayModel }}</span></a>
 </nav>
 <h4 class="small">{{ .Params.displayModel }} — {{ .Params.buildId }}</h4>
-<div class="bottom-margin">
-  {{ if .Params.otaType }}<span class="chip {{ if eq .Params.otaType "full" }}primary{{ else }}secondary{{ end }}">{{ if eq .Params.otaType "full" }}{{ i18n "type_full" }}{{ else }}{{ i18n "type_incremental" }}{{ end }}</span>{{ end }}
-  {{ with .Params.source }}<span class="chip small"><i>verified</i><span>{{ i18n "verified" }} · {{ . }}</span></span>{{ end }}
-</div>
+<nav class="wrap small-margin">
+  {{ if .Params.otaType }}<a class="chip {{ if eq .Params.otaType "full" }}primary{{ else }}secondary{{ end }}">{{ if eq .Params.otaType "full" }}{{ i18n "type_full" }}{{ else }}{{ i18n "type_incremental" }}{{ end }}</a>{{ end }}
+  {{ with .Params.source }}<a class="chip small"><i>verified</i><span>{{ i18n "verified" }} · {{ . }}</span></a>{{ end }}
+</nav>
 
-<table class="border">
-  <tbody>
-    {{ with .Params.manufacturer }}<tr><td>{{ i18n "manufacturer" }}</td><td>{{ . }}</td></tr>{{ end }}
-    <tr><td>{{ i18n "installs_build" }}</td><td><code class="break">{{ .Params.postBuild }}</code></td></tr>
-    {{ with .Params.preBuild }}<tr><td>{{ i18n "updates_from" }}</td><td><code class="break">{{ . }}</code></td></tr>{{ end }}
-    <tr><td>{{ i18n "security_patch" }}</td><td>{{ .Params.securityPatch | default "—" }}</td></tr>
-    <tr><td>{{ i18n "sdk" }}</td><td>{{ .Params.sdk | default "—" }}</td></tr>
-    <tr><td>{{ i18n "size" }}</td><td>{{ partial "bytes.html" .Params.sizeBytes }}</td></tr>
-    <tr><td>{{ i18n "updated" }}</td><td>{{ .Date.Format "2006-01-02" }}</td></tr>
-  </tbody>
-</table>
+<article class="round border">
+  <table class="border">
+    <tbody>
+      {{ with .Params.manufacturer }}<tr><td>{{ i18n "manufacturer" }}</td><td>{{ . }}</td></tr>{{ end }}
+      <tr><td>{{ i18n "installs_build" }}</td><td><code class="break">{{ .Params.postBuild }}</code></td></tr>
+      {{ with .Params.preBuild }}<tr><td>{{ i18n "updates_from" }}</td><td><code class="break">{{ . }}</code></td></tr>{{ end }}
+      <tr><td>{{ i18n "security_patch" }}</td><td>{{ .Params.securityPatch | default "—" }}</td></tr>
+      <tr><td>{{ i18n "sdk" }}</td><td>{{ .Params.sdk | default "—" }}</td></tr>
+      <tr><td>{{ i18n "size" }}</td><td>{{ partial "bytes.html" .Params.sizeBytes }}</td></tr>
+      <tr><td>{{ i18n "updated" }}</td><td>{{ .Date.Format "2006-01-02" }}</td></tr>
+    </tbody>
+  </table>
+</article>
 
-<nav class="wrap top-margin bottom-margin">
+<nav class="wrap">
   {{ if .Params.otaUrl }}<a class="button" href="{{ .Params.otaUrl }}"><i>download</i><span>{{ i18n "download_original" }}</span></a>{{ end }}
   {{ range .Params.archiveUrls }}<a class="button border" href="{{ . }}"><i>inventory_2</i><span>{{ i18n "download_mirror" }}</span></a>{{ end }}
   {{ if .Params.otaUrl }}<button class="button transparent" data-copy="{{ .Params.otaUrl }}" onclick="copyText(this.dataset.copy)"><i>content_copy</i><span>{{ i18n "copy_url" }}</span></button>{{ end }}
 </nav>
 
 {{ with .Params.description }}
-<h6>{{ i18n "release_notes" }}</h6>
-<article class="border no-elevate notes">{{ . | safeHTML }}</article>
+<h6 class="small top-margin">{{ i18n "release_notes" }}</h6>
+<article class="round border notes">{{ . | safeHTML }}</article>
 {{ end }}
 {{ end }}

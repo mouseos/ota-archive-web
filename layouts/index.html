@@ -1,7 +1,8 @@
 {{ define "main" }}
 <div class="large-padding center-align">
+  <i class="extra primary-text">android</i>
   <h3>{{ i18n "site_title" }}</h3>
-  <p class="secondary-text">{{ i18n "tagline" }}</p>
+  <p class="muted">{{ i18n "tagline" }}</p>
   <nav class="center-align wrap">
     <a class="button" href="{{ "search/" | relLangURL }}"><i>search</i><span>{{ i18n "nav_search" }}</span></a>
     <a class="button border" href="{{ "devices/" | relLangURL }}"><i>devices</i><span>{{ i18n "nav_devices" }}</span></a>
@@ -12,10 +13,14 @@
 <div class="grid">
   {{ range .Sections }}
   <div class="s12 m6 l4">
-    <article class="border no-elevate">
+    <article class="round border card-link">
       <a href="{{ .Permalink }}">
-        <h6 class="small">{{ .Title }}</h6>
-        <div class="small-text secondary-text">{{ len .Sections }} {{ i18n "nav_devices" }}</div>
+        <nav class="no-space">
+          <i>folder</i>
+          <h6 class="small max">{{ .Title }}</h6>
+          <i>arrow_forward</i>
+        </nav>
+        <p class="small-text muted">{{ i18n "model_count" (dict "count" (len .Sections)) }}</p>
       </a>
     </article>
   </div>
