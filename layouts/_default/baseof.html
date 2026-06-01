@@ -43,6 +43,6 @@
       dlMirror: {{ i18n "download_mirror" | jsonify }}
     };
   </script>
-  <script src="{{ "js/app.js" | relURL }}"></script>
+  {{ with resources.Get "js/app.js" }}{{ $j := . | fingerprint }}<script src="{{ $j.RelPermalink }}"></script>{{ end }}
 </body>
 </html>
