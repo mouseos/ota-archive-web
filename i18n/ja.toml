@@ -39,9 +39,9 @@ other = "差分"
 [download]
 other = "ダウンロード"
 [download_original]
-other = "オリジナル (Google)"
+other = "Google OTA"
 [download_mirror]
-other = "ミラー (archive.org)"
+other = "archive.org（ミラー）"
 [copy_url]
 other = "URLをコピー"
 [release_notes]

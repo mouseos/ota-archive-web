@@ -39,9 +39,9 @@ other = "Incremental"
 [download]
 other = "Download"
 [download_original]
-other = "Original (Google)"
+other = "Google OTA"
 [download_mirror]
-other = "Mirror (archive.org)"
+other = "archive.org (mirror)"
 [copy_url]
 other = "Copy URL"
 [release_notes]

@@ -39,9 +39,9 @@ other = "增量"
 [download]
 other = "下载"
 [download_original]
-other = "原始 (Google)"
+other = "Google OTA"
 [download_mirror]
-other = "镜像 (archive.org)"
+other = "archive.org（镜像）"
 [copy_url]
 other = "复制链接"
 [release_notes]
