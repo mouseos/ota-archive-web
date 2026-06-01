@@ -14,24 +14,26 @@
   </main>
   {{ partial "footer.html" . }}
 
-  <dialog class="modal bottom" id="langModal">
-    <h6 class="small">Language · 言語 · 语言</h6>
-    <div class="top-margin">
+  <dialog class="bottom" id="langModal">
+    <h5>Language · 言語 · 语言</h5>
+    <div>
       {{ range .AllTranslations }}
-      <a class="row wave padding round" href="{{ .Permalink }}">
-        <i>translate</i><div class="max">{{ .Site.Language.LanguageName }}</div>
+      <a class="row wave round padding" href="{{ .Permalink }}">
+        <div class="max">{{ .Site.Language.LanguageName }}</div>
         {{ if eq .Lang $.Site.Language.Lang }}<i>check</i>{{ end }}
       </a>
       {{ end }}
     </div>
-    <nav class="right-align top-margin"><button class="transparent" onclick="closeDialog(this)">{{ i18n "close" }}</button></nav>
+    <nav class="right-align">
+      <button class="border" onclick="closeDialog(this)">{{ i18n "close" }}</button>
+    </nav>
   </dialog>
 
-  <dialog class="modal bottom" id="dlModal">
-    <h6 class="small">{{ i18n "download_source" }}</h6>
-    <div id="dlSources" class="top-margin"></div>
-    <nav class="right-align top-margin">
-      <button class="transparent" onclick="closeDialog(this)">{{ i18n "close" }}</button>
+  <dialog class="bottom" id="dlModal">
+    <h5>{{ i18n "download_source" }}</h5>
+    <div id="dlSources"></div>
+    <nav class="right-align">
+      <button class="border" onclick="closeDialog(this)">{{ i18n "close" }}</button>
     </nav>
   </dialog>
 
