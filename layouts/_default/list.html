@@ -18,28 +18,26 @@
 {{ else }}
   {{ $subs := .Sections }}
   {{ if $subs }}
-    <div class="grid">
+    <ul class="list border large-space">
       {{ range $subs }}
-      <div class="s12 m6 l4">
-        <article class="round border card-link">
-          <a href="{{ .Permalink }}">
-            <nav class="no-space">
-              <i>{{ if .Params.isModel }}smartphone{{ else }}folder{{ end }}</i>
-              <h6 class="small max">{{ .Title }}</h6>
-              <i>arrow_forward</i>
-            </nav>
-            <p class="small-text muted">
+      <li>
+        <a href="{{ .Permalink }}" class="max row wave">
+          <i>{{ if .Params.isModel }}smartphone{{ else }}folder{{ end }}</i>
+          <div class="max">
+            <h6 class="small">{{ .Title }}</h6>
+            <div class="small-text muted">
               {{ if .Params.isModel }}
                 {{ with .Params.manufacturer }}{{ . }} · {{ end }}{{ i18n "firmware_count" (dict "count" .Params.firmwareCount) }}{{ with .Params.latestSecurityPatch }} · {{ . }}{{ end }}
               {{ else }}
                 {{ i18n "model_count" (dict "count" (len .Sections)) }}
               {{ end }}
-            </p>
-          </a>
-        </article>
-      </div>
+            </div>
+          </div>
+          <i>arrow_forward</i>
+        </a>
+      </li>
       {{ end }}
-    </div>
+    </ul>
   {{ else }}<p class="muted">{{ i18n "no_firmware" }}</p>{{ end }}
 {{ end }}
 {{ end }}
