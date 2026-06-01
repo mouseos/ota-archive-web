@@ -32,20 +32,28 @@ function hostOf(u) {
   try { return new URL(u).hostname; } catch (e) { return ""; }
 }
 
-// Open/close native <dialog> reliably (independent of beercss JS state).
+// beercss shows a <dialog> when it has the `active` class (its .modal CSS is gated on
+// `.active`, NOT the native [open] state). Toggle that class directly so it works
+// regardless of beercss's global ui() timing.
 function showDialog(id) {
   var d = document.getElementById(id);
-  if (!d) return;
-  if (typeof d.showModal === "function") { if (!d.open) d.showModal(); }
-  else { try { ui("#" + id); } catch (e) {} }
+  if (d) d.classList.add("active");
 }
 function closeDialog(el) {
   var d = el && el.closest ? el.closest("dialog") : null;
-  if (d && typeof d.close === "function") d.close(); else if (d) d.removeAttribute("open");
+  if (d) d.classList.remove("active");
 }
-// close when the backdrop (the dialog element itself) is clicked
+// close on Escape, or when the dialog backdrop (the <dialog> element itself) is clicked
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    var a = document.querySelector("dialog.active");
+    if (a) a.classList.remove("active");
+  }
+});
 document.addEventListener("click", function (e) {
-  if (e.target && e.target.tagName === "DIALOG" && e.target.open) e.target.close();
+  if (e.target && e.target.tagName === "DIALOG" && e.target.classList.contains("active")) {
+    e.target.classList.remove("active");
+  }
 });
 
 // Download-source chooser modal (Original Google vs archive.org mirror).
