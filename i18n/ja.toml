@@ -86,7 +86,7 @@ other = "閉じる"
 other = "ダウンロード元を選択"
 
 [app_cta_title]
-other = "お探しのファームが無い？"
+other = "お探しのファームウェアが見つからない場合"
 [app_cta_text]
 other = "アプリならお使いの端末から Google OTA で直接探せます。"
 [get_app]
