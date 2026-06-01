@@ -76,3 +76,6 @@ other = "最新版本"
 other = "型号"
 [device_info]
 other = "设备信息"
+
+[firmware]
+other = "固件"

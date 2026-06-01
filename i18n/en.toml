@@ -76,3 +76,6 @@ other = "Latest build"
 other = "Model"
 [device_info]
 other = "Device info"
+
+[firmware]
+other = "Firmware"

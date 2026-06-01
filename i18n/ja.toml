@@ -76,3 +76,6 @@ other = "最新ビルド"
 other = "型番"
 [device_info]
 other = "端末情報"
+
+[firmware]
+other = "ファームウェア"

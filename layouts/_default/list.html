@@ -3,25 +3,22 @@
 
 {{ if .Params.isModel }}
   {{ $brand := .Params.retailBranding | default .Params.manufacturer }}
-  <article class="round border">
-    <nav class="no-space">
-      <i>smartphone</i>
-      <h6 class="small max">{{ i18n "device_info" }}</h6>
-      {{ range .Params.otaTypes }}<a class="chip tiny {{ if eq . "full" }}primary{{ else }}secondary{{ end }}">{{ if eq . "full" }}{{ i18n "type_full" }}{{ else }}{{ i18n "type_incremental" }}{{ end }}</a>{{ end }}
-    </nav>
-    <div class="grid no-space top-margin">
-      {{ with $brand }}{{ partial "fact.html" (dict "label" (i18n "manufacturer") "value" .) }}{{ end }}
-      {{ if and .Params.rawModel (ne .Params.rawModel .Title) (ne .Params.rawModel .Params.device) }}{{ partial "fact.html" (dict "label" (i18n "model_no") "value" .Params.rawModel) }}{{ end }}
-      {{ with .Params.device }}{{ partial "fact.html" (dict "label" (i18n "codename") "value" .) }}{{ end }}
-      {{ with .Params.androidVersions }}{{ partial "fact.html" (dict "label" (i18n "android") "value" (delimit . ", ")) }}{{ end }}
-      {{ with .Params.sdks }}{{ partial "fact.html" (dict "label" (i18n "sdk") "value" (delimit . ", ")) }}{{ end }}
-      {{ with .Params.latestSecurityPatch }}{{ partial "fact.html" (dict "label" (i18n "security_patch") "value" .) }}{{ end }}
-      {{ partial "fact.html" (dict "label" (i18n "ota_type") "value" (i18n "firmware_count" (dict "count" .Params.firmwareCount))) }}
-      {{ if or .Params.firstDate .Params.latestDate }}{{ partial "fact.html" (dict "label" (i18n "period") "value" (cond (eq .Params.firstDate .Params.latestDate) .Params.latestDate (printf "%s – %s" .Params.firstDate .Params.latestDate))) }}{{ end }}
-      {{ with .Params.latestBuildId }}{{ partial "fact.html" (dict "label" (i18n "latest_build") "value" .) }}{{ end }}
-      {{ if and .Params.productName (ne .Params.productName .Params.device) }}{{ partial "fact.html" (dict "label" (i18n "product") "value" .Params.productName) }}{{ end }}
-    </div>
-  </article>
+  <nav class="wrap small-margin">
+    {{ range .Params.otaTypes }}<a class="chip {{ if eq . "full" }}primary{{ else }}secondary{{ end }}">{{ if eq . "full" }}{{ i18n "type_full" }}{{ else }}{{ i18n "type_incremental" }}{{ end }}</a>{{ end }}
+  </nav>
+  <div class="grid medium-space top-margin">
+    {{ with $brand }}{{ partial "fact.html" (dict "label" (i18n "manufacturer") "value" .) }}{{ end }}
+    {{ if and .Params.rawModel (ne .Params.rawModel .Title) (ne .Params.rawModel .Params.device) }}{{ partial "fact.html" (dict "label" (i18n "model_no") "value" .Params.rawModel) }}{{ end }}
+    {{ with .Params.device }}{{ partial "fact.html" (dict "label" (i18n "codename") "value" .) }}{{ end }}
+    {{ with .Params.androidVersions }}{{ partial "fact.html" (dict "label" (i18n "android") "value" (delimit . ", ")) }}{{ end }}
+    {{ with .Params.sdks }}{{ partial "fact.html" (dict "label" (i18n "sdk") "value" (delimit . ", ")) }}{{ end }}
+    {{ with .Params.latestSecurityPatch }}{{ partial "fact.html" (dict "label" (i18n "security_patch") "value" .) }}{{ end }}
+    {{ partial "fact.html" (dict "label" (i18n "firmware") "value" .Params.firmwareCount) }}
+    {{ if or .Params.firstDate .Params.latestDate }}{{ partial "fact.html" (dict "label" (i18n "period") "value" (cond (eq .Params.firstDate .Params.latestDate) .Params.latestDate (printf "%s – %s" .Params.firstDate .Params.latestDate))) }}{{ end }}
+    {{ with .Params.latestBuildId }}{{ partial "fact.html" (dict "label" (i18n "latest_build") "value" .) }}{{ end }}
+    {{ if and .Params.productName (ne .Params.productName .Params.device) }}{{ partial "fact.html" (dict "label" (i18n "product") "value" .Params.productName) }}{{ end }}
+  </div>
+  <hr class="medium-margin">
   {{ $fw := where .Pages "Params.postBuild" "!=" nil }}
   {{ if $fw }}
     <div class="grid">
