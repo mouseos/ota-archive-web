@@ -105,12 +105,16 @@ def main():
 
             for m in models:
                 model = m.get("model", "")
-                display = m.get("displayModel", model)
+                # prefer the official Google Play marketing name for display
+                display = m.get("marketingName") or m.get("displayModel") or model
+                retail = m.get("retailBranding", "") or m.get("manufacturer", "")
                 section_index(
                     lang, f"devices/{group}/{model}", display,
                     extra_params={
                         "group": group, "model": model, "displayModel": display,
+                        "rawModel": m.get("displayModel", model),
                         "manufacturer": m.get("manufacturer", ""),
+                        "retailBranding": retail,
                         "brand": m.get("brand", ""),
                         "firmwareCount": int(m.get("firmwareCount", 0) or 0),
                         "latestSecurityPatch": m.get("latestSecurityPatch", "") or "",
@@ -135,7 +139,9 @@ def main():
                         f"group = {toml_str(group)}",
                         f"model = {toml_str(model)}",
                         f"displayModel = {toml_str(display)}",
+                        f"rawModel = {toml_str(m.get('displayModel', model))}",
                         f"manufacturer = {toml_str(m.get('manufacturer',''))}",
+                        f"retailBranding = {toml_str(retail)}",
                         f"buildId = {toml_str(bid)}",
                         f"preBuild = {toml_str(fw.get('preBuild',''))}",
                         f"postBuild = {toml_str(post)}",

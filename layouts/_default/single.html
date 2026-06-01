@@ -11,7 +11,9 @@
 <article class="round border">
   <table class="border">
     <tbody>
-      {{ with .Params.manufacturer }}<tr><td>{{ i18n "manufacturer" }}</td><td>{{ . }}</td></tr>{{ end }}
+      {{ $brandName := .Params.retailBranding | default .Params.manufacturer }}
+      {{ with $brandName }}<tr><td>{{ i18n "manufacturer" }}</td><td>{{ . }}</td></tr>{{ end }}
+      {{ if and .Params.rawModel (ne .Params.rawModel .Params.displayModel) }}<tr><td>Model</td><td>{{ .Params.rawModel }}</td></tr>{{ end }}
       <tr><td>{{ i18n "installs_build" }}</td><td><code class="break">{{ .Params.postBuild }}</code></td></tr>
       {{ with .Params.preBuild }}<tr><td>{{ i18n "updates_from" }}</td><td><code class="break">{{ . }}</code></td></tr>{{ end }}
       <tr><td>{{ i18n "security_patch" }}</td><td>{{ .Params.securityPatch | default "—" }}</td></tr>

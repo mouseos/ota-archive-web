@@ -3,7 +3,9 @@
 
 {{ if .Params.isModel }}
   <nav class="wrap small-margin">
-    {{ with .Params.manufacturer }}<a class="chip small"><i>factory</i><span>{{ . }}</span></a>{{ end }}
+    {{ $brandName := .Params.retailBranding | default .Params.manufacturer }}
+    {{ with $brandName }}<a class="chip small"><i>factory</i><span>{{ . }}</span></a>{{ end }}
+    {{ if and .Params.rawModel (ne .Params.rawModel .Title) }}<a class="chip small"><i>tag</i><span>{{ .Params.rawModel }}</span></a>{{ end }}
     <a class="chip small">{{ i18n "firmware_count" (dict "count" .Params.firmwareCount) }}</a>
     {{ with .Params.latestSecurityPatch }}<a class="chip small"><i>security</i><span>{{ . }}</span></a>{{ end }}
     {{ range .Params.otaTypes }}<a class="chip small {{ if eq . "full" }}primary{{ else }}secondary{{ end }}">{{ if eq . "full" }}{{ i18n "type_full" }}{{ else }}{{ i18n "type_incremental" }}{{ end }}</a>{{ end }}
@@ -27,7 +29,7 @@
             <h6 class="small">{{ .Title }}</h6>
             <div class="small-text muted">
               {{ if .Params.isModel }}
-                {{ with .Params.manufacturer }}{{ . }} · {{ end }}{{ i18n "firmware_count" (dict "count" .Params.firmwareCount) }}{{ with .Params.latestSecurityPatch }} · {{ . }}{{ end }}
+                {{ $b := .Params.retailBranding | default .Params.manufacturer }}{{ with $b }}{{ . }} · {{ end }}{{ i18n "firmware_count" (dict "count" .Params.firmwareCount) }}{{ with .Params.latestSecurityPatch }} · {{ . }}{{ end }}
               {{ else }}
                 {{ i18n "model_count" (dict "count" (len .Sections)) }}
               {{ end }}
