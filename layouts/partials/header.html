@@ -1,9 +1,9 @@
 <header class="surface-container">
-  <nav>
+  <nav class="no-wrap">
     <a href="{{ "" | relLangURL }}" class="button circle transparent"><i>android</i></a>
-    <h6 class="max small"><a href="{{ "" | relLangURL }}">{{ i18n "site_title" }}</a></h6>
-    <a class="button transparent" href="{{ "devices/" | relLangURL }}"><i>devices</i><span class="m l">{{ i18n "nav_devices" }}</span></a>
-    <a class="button transparent" href="{{ "search/" | relLangURL }}"><i>search</i><span class="m l">{{ i18n "nav_search" }}</span></a>
+    <h6 class="max small brand"><a href="{{ "" | relLangURL }}">{{ i18n "site_title" }}</a></h6>
+    <a class="button circle transparent" href="{{ "devices/" | relLangURL }}" title="{{ i18n "nav_devices" }}"><i>devices</i></a>
+    <a class="button circle transparent" href="{{ "search/" | relLangURL }}" title="{{ i18n "nav_search" }}"><i>search</i></a>
     <button class="button circle transparent" onclick="toggleMode()" aria-label="theme"><i>contrast</i></button>
     <button class="button circle transparent" aria-label="language"><i>translate</i>
       <menu class="no-wrap right">

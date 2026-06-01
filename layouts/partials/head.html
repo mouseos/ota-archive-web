@@ -30,9 +30,13 @@
   table.border td:first-child { white-space: nowrap; color: var(--on-surface-variant); width: 1%; }
   table code.break { font-size: .8rem; }
   /* device-info facts: roomy, wrapping values */
-  .fact { padding: .35rem 0; }
-  .fact .fact-label { font-size: .72rem; letter-spacing: .04em; text-transform: uppercase; color: var(--on-surface-variant); }
-  .fact .fact-value { font-size: 1.05rem; overflow-wrap: anywhere; }
+  .fact { padding: .15rem 0; }
+  .fact .fact-label { font-size: .7rem; letter-spacing: .04em; text-transform: uppercase; color: var(--on-surface-variant); margin-bottom: .1rem; }
+  .fact .fact-value { font-size: 1rem; overflow-wrap: anywhere; }
+  /* compact, non-wrapping app bar brand */
+  header nav.no-wrap { flex-wrap: nowrap; }
+  header .brand { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  #results li a, ul.list li a.row { width: 100%; }
   .card-link { transition: background .15s ease; }
   .card-link:hover { background: var(--surface-container-high); }
 

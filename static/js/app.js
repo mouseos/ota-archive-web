@@ -50,15 +50,15 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!term) { results.innerHTML = ""; hint.hidden = false; return; }
     hint.hidden = true;
     var hits = data.filter(function (e) { return (e.text || "").indexOf(term) >= 0; }).slice(0, 200);
-    if (!hits.length) { results.innerHTML = '<p class="secondary-text">' + esc(noRes) + "</p>"; return; }
+    if (!hits.length) { results.innerHTML = '<li class="muted">' + esc(noRes) + "</li>"; return; }
     results.innerHTML = hits.map(function (e) {
       var url = window.DEVICES_BASE + encodeURIComponent(e.group) + "/" + encodeURIComponent(e.model) + "/";
       var cnt = fwTpl.replace("{n}", e.firmwareCount == null ? "" : e.firmwareCount);
       var brand = e.retailBranding || e.manufacturer;
       var sub = [brand, cnt, e.latestSecurityPatch].filter(Boolean).map(esc).join(" · ");
-      return '<div class="s12 m6 l4"><article class="round border card-link"><a href="' + url +
-        '"><nav class="no-space"><i>smartphone</i><h6 class="small max">' + esc(e.marketingName || e.displayModel || e.model) +
-        '</h6><i>arrow_forward</i></nav><p class="small-text muted">' + sub + "</p></a></article></div>";
+      return '<li><a href="' + url + '" class="max row"><i>smartphone</i><div class="max">' +
+        '<div class="bold">' + esc(e.marketingName || e.displayModel || e.model) + "</div>" +
+        '<div class="small-text muted">' + sub + "</div></div><i>arrow_forward</i></a></li>";
     }).join("");
   }
 

@@ -6,7 +6,7 @@
   <nav class="wrap small-margin">
     {{ range .Params.otaTypes }}<a class="chip {{ if eq . "full" }}primary{{ else }}secondary{{ end }}">{{ if eq . "full" }}{{ i18n "type_full" }}{{ else }}{{ i18n "type_incremental" }}{{ end }}</a>{{ end }}
   </nav>
-  <div class="grid medium-space top-margin">
+  <div class="grid small-space top-margin">
     {{ with $brand }}{{ partial "fact.html" (dict "label" (i18n "manufacturer") "value" .) }}{{ end }}
     {{ if and .Params.rawModel (ne .Params.rawModel .Title) (ne .Params.rawModel .Params.device) }}{{ partial "fact.html" (dict "label" (i18n "model_no") "value" .Params.rawModel) }}{{ end }}
     {{ with .Params.device }}{{ partial "fact.html" (dict "label" (i18n "codename") "value" .) }}{{ end }}
@@ -21,9 +21,9 @@
   <hr class="medium-margin">
   {{ $fw := where .Pages "Params.postBuild" "!=" nil }}
   {{ if $fw }}
-    <div class="grid">
-      {{ range $fw.ByDate.Reverse }}<div class="s12 m6 l4">{{ partial "firmware-card.html" . }}</div>{{ end }}
-    </div>
+    <ul class="list border">
+      {{ range $fw.ByDate.Reverse }}{{ partial "firmware-card.html" . }}{{ end }}
+    </ul>
   {{ else }}<p class="muted">{{ i18n "no_firmware" }}</p>{{ end }}
 
 {{ else }}
