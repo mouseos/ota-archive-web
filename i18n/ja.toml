@@ -61,3 +61,18 @@ other = "ビルド日"
 
 [model_count]
 other = "{{ .count }} 機種"
+
+[codename]
+other = "コードネーム"
+[product]
+other = "プロダクト名"
+[android]
+other = "Android バージョン"
+[period]
+other = "ビルド時期"
+[latest_build]
+other = "最新ビルド"
+[model_no]
+other = "型番"
+[device_info]
+other = "端末情報"

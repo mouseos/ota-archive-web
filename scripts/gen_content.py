@@ -51,6 +51,13 @@ def rfc3339(ts):
         return "2020-01-01T00:00:00Z"
 
 
+def ym(ts):
+    try:
+        return datetime.datetime.utcfromtimestamp(int(ts)).strftime("%Y-%m")
+    except Exception:
+        return ""
+
+
 def write(path, text):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
@@ -116,6 +123,13 @@ def main():
                         "manufacturer": m.get("manufacturer", ""),
                         "retailBranding": retail,
                         "brand": m.get("brand", ""),
+                        "device": m.get("device", "") or "",
+                        "productName": m.get("productName", "") or "",
+                        "androidVersions": m.get("androidVersions", []) or [],
+                        "sdks": m.get("sdks", []) or [],
+                        "firstDate": ym(m.get("firstTimestamp")),
+                        "latestDate": ym(m.get("latestTimestamp")),
+                        "latestBuildId": m.get("latestBuildId", "") or "",
                         "firmwareCount": int(m.get("firmwareCount", 0) or 0),
                         "latestSecurityPatch": m.get("latestSecurityPatch", "") or "",
                         "otaTypes": m.get("otaTypes", []) or [],

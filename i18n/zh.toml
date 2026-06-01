@@ -61,3 +61,18 @@ other = "构建日期"
 
 [model_count]
 other = "{{ .count }} 款"
+
+[codename]
+other = "代号"
+[product]
+other = "产品名"
+[android]
+other = "Android 版本"
+[period]
+other = "构建日期"
+[latest_build]
+other = "最新版本"
+[model_no]
+other = "型号"
+[device_info]
+other = "设备信息"

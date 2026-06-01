@@ -61,3 +61,18 @@ other = "Build date"
 
 [model_count]
 other = "{{ .count }} models"
+
+[codename]
+other = "Codename"
+[product]
+other = "Product"
+[android]
+other = "Android version"
+[period]
+other = "Build dates"
+[latest_build]
+other = "Latest build"
+[model_no]
+other = "Model"
+[device_info]
+other = "Device info"
