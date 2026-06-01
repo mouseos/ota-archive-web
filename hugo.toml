@@ -1,0 +1,47 @@
+baseURL = "https://mouseos.github.io/ota-archive-web/"
+title = "Android OTA Archive"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "rss"]
+enableGitInfo = false
+
+[pagination]
+  pagerSize = 120
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    languageCode = "en-US"
+    weight = 1
+    contentDir = "content/en"
+    [languages.en.params]
+      htmlLang = "en"
+  [languages.ja]
+    languageName = "日本語"
+    languageCode = "ja-JP"
+    weight = 2
+    contentDir = "content/ja"
+    [languages.ja.params]
+      htmlLang = "ja"
+  [languages.zh]
+    languageName = "中文"
+    languageCode = "zh-CN"
+    weight = 3
+    contentDir = "content/zh"
+    [languages.zh.params]
+      htmlLang = "zh-Hans"
+
+[params]
+  # read-only data is served from the ota-archive repo via jsDelivr
+  cdnBase = "https://cdn.jsdelivr.net/gh/mouseos/ota-archive@main/OTA/Google"
+  archiveRepo = "https://github.com/mouseos/ota-archive"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[outputs]
+  home = ["HTML"]
+  section = ["HTML"]
+  page = ["HTML"]

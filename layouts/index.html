@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="large-padding center-align">
+  <h3>{{ i18n "site_title" }}</h3>
+  <p class="secondary-text">{{ i18n "tagline" }}</p>
+  <nav class="center-align wrap">
+    <a class="button" href="{{ "search/" | relLangURL }}"><i>search</i><span>{{ i18n "nav_search" }}</span></a>
+    <a class="button border" href="{{ "devices/" | relLangURL }}"><i>devices</i><span>{{ i18n "nav_devices" }}</span></a>
+  </nav>
+</div>
+{{ with .Site.GetPage "devices" }}
+<h5 class="small">{{ i18n "all_devices" }}</h5>
+<div class="grid">
+  {{ range .Sections }}
+  <div class="s12 m6 l4">
+    <article class="border no-elevate">
+      <a href="{{ .Permalink }}">
+        <h6 class="small">{{ .Title }}</h6>
+        <div class="small-text secondary-text">{{ len .Sections }} {{ i18n "nav_devices" }}</div>
+      </a>
+    </article>
+  </div>
+  {{ end }}
+</div>
+{{ end }}
+{{ end }}

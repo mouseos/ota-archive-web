@@ -1,0 +1,5 @@
+/public/
+/resources/
+/.hugo_build.lock
+# content is generated from the ota-archive data at build time
+/content/

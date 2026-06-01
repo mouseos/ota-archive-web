@@ -1,0 +1,60 @@
+[site_title]
+other = "Android OTA Archive"
+[tagline]
+other = "Browse and download archived Android OTA firmware"
+[nav_home]
+other = "Home"
+[nav_devices]
+other = "Devices"
+[nav_search]
+other = "Search"
+[search_placeholder]
+other = "Search model, build, patch or notes"
+[search_hint]
+other = "Type to search across all devices."
+[search_no_results]
+other = "No devices match your query."
+[all_devices]
+other = "All devices"
+[manufacturer]
+other = "Manufacturer"
+[firmware_count]
+other = "{{ .count }} firmware"
+[latest_patch]
+other = "Latest patch"
+[build]
+other = "Build"
+[security_patch]
+other = "Security patch"
+[sdk]
+other = "SDK"
+[size]
+other = "Size"
+[ota_type]
+other = "Type"
+[type_full]
+other = "Full"
+[type_incremental]
+other = "Incremental"
+[download]
+other = "Download"
+[download_original]
+other = "Original (Google)"
+[download_mirror]
+other = "Mirror (archive.org)"
+[copy_url]
+other = "Copy URL"
+[release_notes]
+other = "Release notes"
+[updates_from]
+other = "Updates from"
+[installs_build]
+other = "Installs"
+[no_firmware]
+other = "No firmware yet."
+[verified]
+other = "Verified"
+[data_source]
+other = "Data served from the ota-archive repository via jsDelivr."
+[updated]
+other = "Build date"

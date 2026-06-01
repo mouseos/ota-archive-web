@@ -1,0 +1,19 @@
+<link href="https://cdn.jsdelivr.net/npm/beercss@4.0.21/dist/cdn/beer.min.css" rel="stylesheet">
+<script type="module" src="https://cdn.jsdelivr.net/npm/beercss@4.0.21/dist/cdn/beer.min.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@1.1.4/dist/cdn/material-dynamic-colors.min.js"></script>
+{{ $desc := i18n "tagline" }}
+{{ if .Params.postBuild }}{{ $desc = printf "%s %s · %s %s · SDK %s" .Params.displayModel .Params.buildId (i18n "security_patch") .Params.securityPatch .Params.sdk }}{{ end }}
+<meta name="description" content="{{ $desc }}">
+<link rel="canonical" href="{{ .Permalink }}">
+{{ range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Site.Language.Params.htmlLang | default .Lang }}" href="{{ .Permalink }}">
+{{- end }}
+{{ $xdef := .Permalink }}{{ range .AllTranslations }}{{ if eq .Lang "en" }}{{ $xdef = .Permalink }}{{ end }}{{ end }}
+<link rel="alternate" hreflang="x-default" href="{{ $xdef }}">
+<style>
+  .break { overflow-wrap: anywhere; word-break: break-all; }
+  table.border td:first-child { white-space: nowrap; color: var(--secondary); width: 1%; }
+  .notes { line-height: 1.6; }
+  main.responsive { padding-bottom: 3rem; }
+  article a { color: inherit; text-decoration: none; }
+</style>

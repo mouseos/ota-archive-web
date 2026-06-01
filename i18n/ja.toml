@@ -1,0 +1,60 @@
+[site_title]
+other = "Android OTA アーカイブ"
+[tagline]
+other = "アーカイブされた Android OTA ファームウェアの閲覧とダウンロード"
+[nav_home]
+other = "ホーム"
+[nav_devices]
+other = "機種"
+[nav_search]
+other = "検索"
+[search_placeholder]
+other = "機種・ビルド・パッチ・説明で検索"
+[search_hint]
+other = "入力すると全機種を横断検索します。"
+[search_no_results]
+other = "一致する機種がありません。"
+[all_devices]
+other = "すべての機種"
+[manufacturer]
+other = "メーカー"
+[firmware_count]
+other = "ファーム {{ .count }} 件"
+[latest_patch]
+other = "最新パッチ"
+[build]
+other = "ビルド"
+[security_patch]
+other = "セキュリティパッチ"
+[sdk]
+other = "SDK"
+[size]
+other = "容量"
+[ota_type]
+other = "種別"
+[type_full]
+other = "フル"
+[type_incremental]
+other = "差分"
+[download]
+other = "ダウンロード"
+[download_original]
+other = "オリジナル (Google)"
+[download_mirror]
+other = "ミラー (archive.org)"
+[copy_url]
+other = "URLをコピー"
+[release_notes]
+other = "更新内容"
+[updates_from]
+other = "更新元"
+[installs_build]
+other = "インストール"
+[no_firmware]
+other = "ファームウェアはまだありません。"
+[verified]
+other = "検証済み"
+[data_source]
+other = "データは ota-archive リポジトリから jsDelivr 経由で配信されています。"
+[updated]
+other = "ビルド日"

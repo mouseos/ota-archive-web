@@ -1,0 +1,18 @@
+{{- $p := . -}}
+<article class="border no-elevate">
+  <nav class="no-space">
+    <a href="{{ $p.Permalink }}" class="max"><h6 class="small">{{ $p.Params.buildId }}</h6></a>
+    {{ if $p.Params.otaType }}
+    <span class="chip small {{ if eq $p.Params.otaType "full" }}primary{{ else }}secondary{{ end }}">
+      {{ if eq $p.Params.otaType "full" }}{{ i18n "type_full" }}{{ else }}{{ i18n "type_incremental" }}{{ end }}
+    </span>{{ end }}
+  </nav>
+  <div class="small-text secondary-text bottom-margin">
+    {{ i18n "security_patch" }} {{ $p.Params.securityPatch | default "—" }} · SDK {{ $p.Params.sdk | default "—" }} · {{ partial "bytes.html" $p.Params.sizeBytes }}
+  </div>
+  <nav class="wrap no-space">
+    {{ if $p.Params.otaUrl }}<a class="button small" href="{{ $p.Params.otaUrl }}"><i>download</i><span>{{ i18n "download" }}</span></a>{{ end }}
+    {{ range $p.Params.archiveUrls }}<a class="button small border" href="{{ . }}"><i>inventory_2</i><span>{{ i18n "download_mirror" }}</span></a>{{ end }}
+    <a class="button small transparent" href="{{ $p.Permalink }}"><i>arrow_forward</i></a>
+  </nav>
+</article>

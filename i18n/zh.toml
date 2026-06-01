@@ -1,0 +1,60 @@
+[site_title]
+other = "Android OTA 存档"
+[tagline]
+other = "浏览和下载已存档的 Android OTA 固件"
+[nav_home]
+other = "首页"
+[nav_devices]
+other = "设备"
+[nav_search]
+other = "搜索"
+[search_placeholder]
+other = "搜索机型、版本、补丁或说明"
+[search_hint]
+other = "输入即可跨所有设备搜索。"
+[search_no_results]
+other = "没有匹配的设备。"
+[all_devices]
+other = "所有设备"
+[manufacturer]
+other = "制造商"
+[firmware_count]
+other = "{{ .count }} 个固件"
+[latest_patch]
+other = "最新补丁"
+[build]
+other = "版本"
+[security_patch]
+other = "安全补丁"
+[sdk]
+other = "SDK"
+[size]
+other = "大小"
+[ota_type]
+other = "类型"
+[type_full]
+other = "完整"
+[type_incremental]
+other = "增量"
+[download]
+other = "下载"
+[download_original]
+other = "原始 (Google)"
+[download_mirror]
+other = "镜像 (archive.org)"
+[copy_url]
+other = "复制链接"
+[release_notes]
+other = "更新说明"
+[updates_from]
+other = "更新自"
+[installs_build]
+other = "安装"
+[no_firmware]
+other = "暂无固件。"
+[verified]
+other = "已验证"
+[data_source]
+other = "数据通过 jsDelivr 从 ota-archive 仓库提供。"
+[updated]
+other = "构建日期"

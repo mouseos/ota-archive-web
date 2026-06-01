@@ -1,0 +1,41 @@
+{{ define "main" }}
+<h4 class="small top-margin">{{ .Title }}</h4>
+
+{{ if .Params.isModel }}
+  <div class="bottom-margin">
+    {{ with .Params.manufacturer }}<span class="chip small"><i>factory</i><span>{{ . }}</span></span>{{ end }}
+    <span class="chip small">{{ i18n "firmware_count" (dict "count" .Params.firmwareCount) }}</span>
+    {{ with .Params.latestSecurityPatch }}<span class="chip small"><i>security</i><span>{{ . }}</span></span>{{ end }}
+    {{ range .Params.otaTypes }}<span class="chip small {{ if eq . "full" }}primary{{ else }}secondary{{ end }}">{{ if eq . "full" }}{{ i18n "type_full" }}{{ else }}{{ i18n "type_incremental" }}{{ end }}</span>{{ end }}
+  </div>
+  {{ $fw := where .Pages "Params.postBuild" "!=" nil }}
+  {{ if $fw }}
+    <div class="grid">
+      {{ range $fw.ByDate.Reverse }}<div class="s12 m6 l4">{{ partial "firmware-card.html" . }}</div>{{ end }}
+    </div>
+  {{ else }}<p class="secondary-text">{{ i18n "no_firmware" }}</p>{{ end }}
+
+{{ else }}
+  {{ $subs := .Sections }}
+  {{ if $subs }}
+    <div class="grid">
+      {{ range $subs }}
+      <div class="s12 m6 l4">
+        <article class="border no-elevate">
+          <a href="{{ .Permalink }}">
+            <h6 class="small">{{ .Title }}</h6>
+            {{ if .Params.isModel }}
+            <div class="small-text secondary-text">
+              {{ with .Params.manufacturer }}{{ . }} · {{ end }}{{ i18n "firmware_count" (dict "count" .Params.firmwareCount) }}{{ with .Params.latestSecurityPatch }} · {{ . }}{{ end }}
+            </div>
+            {{ else }}
+            <div class="small-text secondary-text">{{ len .Sections }} {{ i18n "nav_devices" }}</div>
+            {{ end }}
+          </a>
+        </article>
+      </div>
+      {{ end }}
+    </div>
+  {{ else }}<p class="secondary-text">{{ i18n "no_firmware" }}</p>{{ end }}
+{{ end }}
+{{ end }}

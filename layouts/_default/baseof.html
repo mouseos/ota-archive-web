@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Params.htmlLang | default .Site.Language.Lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ if .IsHome }}{{ i18n "site_title" }}{{ else }}{{ .Title }} · {{ i18n "site_title" }}{{ end }}</title>
+  {{ partial "head.html" . }}
+</head>
+<body class="light">
+  {{ partial "header.html" . }}
+  <main class="responsive">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
+  <script>
+    window.CDN_BASE = {{ .Site.Params.cdnBase }};
+    window.DEVICES_BASE = {{ "devices/" | absLangURL }};
+  </script>
+  <script src="{{ "js/app.js" | relURL }}"></script>
+</body>
+</html>
