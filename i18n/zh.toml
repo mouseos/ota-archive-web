@@ -79,3 +79,8 @@ other = "设备信息"
 
 [firmware]
 other = "固件"
+
+[close]
+other = "关闭"
+[download_source]
+other = "选择下载源"

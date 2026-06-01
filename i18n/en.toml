@@ -79,3 +79,8 @@ other = "Device info"
 
 [firmware]
 other = "Firmware"
+
+[close]
+other = "Close"
+[download_source]
+other = "Choose download source"

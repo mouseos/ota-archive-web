@@ -25,8 +25,7 @@
 </article>
 
 <nav class="wrap">
-  {{ if .Params.otaUrl }}<a class="button" href="{{ .Params.otaUrl }}"><i>download</i><span>{{ i18n "download_original" }}</span></a>{{ end }}
-  {{ range .Params.archiveUrls }}<a class="button border" href="{{ . }}"><i>inventory_2</i><span>{{ i18n "download_mirror" }}</span></a>{{ end }}
+  <button class="button" onclick="openDownload(this)" data-original="{{ .Params.otaUrl }}" data-mirror="{{ delimit .Params.archiveUrls "," }}"><i>download</i><span>{{ i18n "download" }}</span></button>
   {{ if .Params.otaUrl }}<button class="button transparent" data-copy="{{ .Params.otaUrl }}" onclick="copyText(this.dataset.copy)"><i>content_copy</i><span>{{ i18n "copy_url" }}</span></button>{{ end }}
 </nav>
 

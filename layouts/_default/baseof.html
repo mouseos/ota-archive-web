@@ -13,9 +13,22 @@
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}
+
+  <dialog class="modal" id="dlModal">
+    <h6 class="small">{{ i18n "download_source" }}</h6>
+    <div id="dlSources" class="top-margin"></div>
+    <nav class="right-align top-margin">
+      <button class="transparent" data-ui="#dlModal">{{ i18n "close" }}</button>
+    </nav>
+  </dialog>
+
   <script>
     window.CDN_BASE = {{ .Site.Params.cdnBase }};
     window.DEVICES_BASE = {{ "devices/" | absLangURL }};
+    window.I18N = {
+      dlOriginal: {{ i18n "download_original" | jsonify }},
+      dlMirror: {{ i18n "download_mirror" | jsonify }}
+    };
   </script>
   <script src="{{ "js/app.js" | relURL }}"></script>
 </body>

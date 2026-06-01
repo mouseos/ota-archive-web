@@ -6,6 +6,8 @@
       {{ with $p.Params.otaType }}{{ if eq . "full" }}{{ i18n "type_full" }}{{ else }}{{ i18n "type_incremental" }}{{ end }} · {{ end }}{{ $p.Params.securityPatch | default "—" }} · SDK {{ $p.Params.sdk | default "—" }} · {{ partial "bytes.html" $p.Params.sizeBytes }}
     </div>
   </div>
-  {{ if $p.Params.otaUrl }}<a class="button small circle" href="{{ $p.Params.otaUrl }}" title="{{ i18n "download_original" }}"><i>download</i></a>{{ end }}
-  {{ range $p.Params.archiveUrls }}<a class="button small circle border" href="{{ . }}" title="{{ i18n "download_mirror" }}"><i>inventory_2</i></a>{{ end }}
+  <button class="button small" onclick="openDownload(this)"
+    data-original="{{ $p.Params.otaUrl }}" data-mirror="{{ delimit $p.Params.archiveUrls "," }}">
+    <i>download</i><span class="m l">{{ i18n "download" }}</span>
+  </button>
 </li>

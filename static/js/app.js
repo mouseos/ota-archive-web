@@ -28,6 +28,32 @@ function copyText(t) {
   if (navigator.clipboard) navigator.clipboard.writeText(t);
 }
 
+function hostOf(u) {
+  try { return new URL(u).hostname; } catch (e) { return ""; }
+}
+
+// Download-source chooser modal (Original Google vs archive.org mirror).
+function openDownload(btn) {
+  var orig = btn.getAttribute("data-original") || "";
+  var mirrors = (btn.getAttribute("data-mirror") || "").split(",").filter(Boolean);
+  var box = document.getElementById("dlSources");
+  var L = window.I18N || {};
+  function row(url, label, icon) {
+    return '<a class="row wave padding round" href="' + url + '" rel="noopener">' +
+      '<i>' + icon + '</i><div class="max"><div class="bold">' + label +
+      '</div><div class="small-text muted break">' + hostOf(url) + '</div></div>' +
+      '<i>download</i></a>';
+  }
+  var html = "";
+  if (orig) html += row(orig, L.dlOriginal || "Original", "cloud_download");
+  mirrors.forEach(function (m) { html += row(m, L.dlMirror || "Mirror", "inventory_2"); });
+  box.innerHTML = html || "—";
+  try { ui("#dlModal"); } catch (e) {}
+  box.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function () { try { ui("#dlModal"); } catch (e) {} });
+  });
+}
+
 // Client-side search over the live search.json (read from jsDelivr)
 document.addEventListener("DOMContentLoaded", function () {
   var q = document.getElementById("q");

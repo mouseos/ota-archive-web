@@ -79,3 +79,8 @@ other = "端末情報"
 
 [firmware]
 other = "ファームウェア"
+
+[close]
+other = "閉じる"
+[download_source]
+other = "ダウンロード元を選択"
