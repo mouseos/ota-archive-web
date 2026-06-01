@@ -32,6 +32,22 @@ function hostOf(u) {
   try { return new URL(u).hostname; } catch (e) { return ""; }
 }
 
+// Open/close native <dialog> reliably (independent of beercss JS state).
+function showDialog(id) {
+  var d = document.getElementById(id);
+  if (!d) return;
+  if (typeof d.showModal === "function") { if (!d.open) d.showModal(); }
+  else { try { ui("#" + id); } catch (e) {} }
+}
+function closeDialog(el) {
+  var d = el && el.closest ? el.closest("dialog") : null;
+  if (d && typeof d.close === "function") d.close(); else if (d) d.removeAttribute("open");
+}
+// close when the backdrop (the dialog element itself) is clicked
+document.addEventListener("click", function (e) {
+  if (e.target && e.target.tagName === "DIALOG" && e.target.open) e.target.close();
+});
+
 // Download-source chooser modal (Original Google vs archive.org mirror).
 function openDownload(btn) {
   var orig = btn.getAttribute("data-original") || "";
@@ -39,7 +55,7 @@ function openDownload(btn) {
   var box = document.getElementById("dlSources");
   var L = window.I18N || {};
   function row(url, label, icon) {
-    return '<a class="row wave padding round" href="' + url + '" rel="noopener">' +
+    return '<a class="row wave padding round" href="' + url + '" rel="noopener" onclick="closeDialog(this)">' +
       '<i>' + icon + '</i><div class="max"><div class="bold">' + label +
       '</div><div class="small-text muted break">' + hostOf(url) + '</div></div>' +
       '<i>download</i></a>';
@@ -48,10 +64,7 @@ function openDownload(btn) {
   if (orig) html += row(orig, L.dlOriginal || "Original", "cloud_download");
   mirrors.forEach(function (m) { html += row(m, L.dlMirror || "Mirror", "inventory_2"); });
   box.innerHTML = html || "—";
-  try { ui("#dlModal"); } catch (e) {}
-  box.querySelectorAll("a").forEach(function (a) {
-    a.addEventListener("click", function () { try { ui("#dlModal"); } catch (e) {} });
-  });
+  showDialog("dlModal");
 }
 
 // Client-side search over the live search.json (read from jsDelivr)

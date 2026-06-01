@@ -5,10 +5,6 @@
     <a class="button circle transparent" href="{{ "devices/" | relLangURL }}" title="{{ i18n "nav_devices" }}"><i>devices</i></a>
     <a class="button circle transparent" href="{{ "search/" | relLangURL }}" title="{{ i18n "nav_search" }}"><i>search</i></a>
     <button class="button circle transparent" onclick="toggleMode()" aria-label="theme"><i>contrast</i></button>
-    <button class="button circle transparent" aria-label="language"><i>translate</i>
-      <menu class="no-wrap right">
-        {{ range .AllTranslations }}<a href="{{ .Permalink }}">{{ .Site.Language.LanguageName }}</a>{{ end }}
-      </menu>
-    </button>
+    <button class="button circle transparent" onclick="showDialog('langModal')" aria-label="language"><i>translate</i></button>
   </nav>
 </header>

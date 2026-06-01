@@ -37,6 +37,11 @@
   header nav.no-wrap { flex-wrap: nowrap; }
   header .brand { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
   #results li a, ul.list li a.row { width: 100%; }
+  /* native <dialog> modal (works without beercss JS) */
+  dialog.modal { border: none; border-radius: 1.25rem; padding: 1.25rem; width: 92vw; max-width: 440px;
+    background: var(--surface-container-high); color: var(--on-surface); }
+  dialog.modal::backdrop { background: rgba(0,0,0,.5); }
+  dialog.modal a.row { color: inherit; text-decoration: none; }
   .card-link { transition: background .15s ease; }
   .card-link:hover { background: var(--surface-container-high); }
 
