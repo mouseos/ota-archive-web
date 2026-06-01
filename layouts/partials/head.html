@@ -45,9 +45,10 @@
     main.responsive { padding: .75rem .75rem 5rem; }
     h3 { font-size: 1.6rem; }
     h4 { font-size: 1.35rem; }
-    header h6 { font-size: 1rem; }
     .fact .fact-value { font-size: 1rem; }
-    /* keep the app bar from getting crowded on phones */
-    header nav > .button > span { display: none; }
+    /* hide brand text on phones (keep the icon); the empty .brand stays a flex
+       spacer so the action icons remain right-aligned and nothing overflows */
+    header .brand a { display: none; }
+    header nav .button.circle { margin: 0; }
   }
 </style>
