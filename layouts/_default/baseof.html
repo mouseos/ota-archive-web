@@ -7,7 +7,7 @@
   <title>{{ if .IsHome }}{{ i18n "site_title" }}{{ else }}{{ .Title }} · {{ i18n "site_title" }}{{ end }}</title>
   {{ partial "head.html" . }}
 </head>
-<body class="light">
+<body class="dark">
   {{ partial "header.html" . }}
   <main class="responsive">
     {{ block "main" . }}{{ end }}

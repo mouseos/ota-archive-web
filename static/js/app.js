@@ -1,16 +1,22 @@
-// Theme persistence + toggle (beercss `ui("mode", ...)`)
+// Theme: default dark + an Android-green accent (Material 3 dynamic color seed).
+var THEME_SEED = "#3ddc84";
 (function () {
-  var m = localStorage.getItem("mode");
-  if (m) {
-    document.body.classList.remove("dark", "light");
-    document.body.classList.add(m);
-    try { ui("mode", m); } catch (e) {}
-  }
+  var m = localStorage.getItem("mode") || "dark";
+  document.body.classList.remove("dark", "light");
+  document.body.classList.add(m);
+  // beercss/material modules load async; retry until ui() is ready.
+  (function apply() {
+    try {
+      ui("theme", THEME_SEED);
+      ui("mode", m);
+    } catch (e) {
+      setTimeout(apply, 150);
+    }
+  })();
 })();
 
 function toggleMode() {
-  var dark = document.body.classList.contains("dark");
-  var next = dark ? "light" : "dark";
+  var next = document.body.classList.contains("dark") ? "light" : "dark";
   try { ui("mode", next); } catch (e) {
     document.body.classList.remove("dark", "light");
     document.body.classList.add(next);
