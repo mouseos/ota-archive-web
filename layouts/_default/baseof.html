@@ -14,7 +14,7 @@
   </main>
   {{ partial "footer.html" . }}
 
-  <dialog class="modal" id="langModal">
+  <dialog class="modal bottom" id="langModal">
     <h6 class="small">Language · 言語 · 语言</h6>
     <div class="top-margin">
       {{ range .AllTranslations }}
@@ -27,7 +27,7 @@
     <nav class="right-align top-margin"><button class="transparent" onclick="closeDialog(this)">{{ i18n "close" }}</button></nav>
   </dialog>
 
-  <dialog class="modal" id="dlModal">
+  <dialog class="modal bottom" id="dlModal">
     <h6 class="small">{{ i18n "download_source" }}</h6>
     <div id="dlSources" class="top-margin"></div>
     <nav class="right-align top-margin">
