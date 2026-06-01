@@ -84,3 +84,10 @@ other = "Firmware"
 other = "Close"
 [download_source]
 other = "Choose download source"
+
+[app_cta_title]
+other = "Can't find your firmware?"
+[app_cta_text]
+other = "The app can look it up directly from your device via Google OTA."
+[get_app]
+other = "Get the app"

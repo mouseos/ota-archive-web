@@ -84,3 +84,10 @@ other = "固件"
 other = "关闭"
 [download_source]
 other = "选择下载源"
+
+[app_cta_title]
+other = "找不到固件？"
+[app_cta_text]
+other = "App 可通过 Google OTA 直接从你的设备查询。"
+[get_app]
+other = "获取应用"

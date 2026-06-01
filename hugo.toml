@@ -36,6 +36,7 @@ enableGitInfo = false
   # read-only data is served from the ota-archive repo via jsDelivr
   cdnBase = "https://cdn.jsdelivr.net/gh/mouseos/ota-archive@main/OTA/Google"
   archiveRepo = "https://github.com/mouseos/ota-archive"
+  appReleaseUrl = "https://github.com/mouseos/android-ota-finder/releases/latest"
 
 [markup]
   [markup.goldmark.renderer]

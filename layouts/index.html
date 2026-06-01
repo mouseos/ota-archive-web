@@ -8,6 +8,18 @@
     <a class="button border" href="{{ "devices/" | relLangURL }}"><i>devices</i><span>{{ i18n "nav_devices" }}</span></a>
   </nav>
 </div>
+<article class="round border">
+  <nav>
+    <i>system_update</i>
+    <div class="max">
+      <div class="bold">{{ i18n "app_cta_title" }}</div>
+      <div class="small-text muted">{{ i18n "app_cta_text" }}</div>
+    </div>
+    <a class="button" href="{{ .Site.Params.appReleaseUrl }}" target="_blank" rel="noopener">
+      <i>download</i><span>{{ i18n "get_app" }}</span>
+    </a>
+  </nav>
+</article>
 {{ with .Site.GetPage "devices" }}
 <h5 class="small">{{ i18n "all_devices" }}</h5>
 <ul class="list border large-space">

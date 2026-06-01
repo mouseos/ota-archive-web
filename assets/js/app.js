@@ -97,7 +97,16 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!term) { results.innerHTML = ""; hint.hidden = false; return; }
     hint.hidden = true;
     var hits = data.filter(function (e) { return (e.text || "").indexOf(term) >= 0; }).slice(0, 200);
-    if (!hits.length) { results.innerHTML = '<li class="muted">' + esc(noRes) + "</li>"; return; }
+    if (!hits.length) {
+      var L = window.I18N || {};
+      var appLi = window.APP_URL
+        ? '<li><a class="max row wave" href="' + window.APP_URL + '" target="_blank" rel="noopener">' +
+          '<i>system_update</i><div class="max">' + esc(L.appCta || L.getApp || "") +
+          '</div><i>download</i></a></li>'
+        : "";
+      results.innerHTML = '<li class="muted">' + esc(noRes) + "</li>" + appLi;
+      return;
+    }
     results.innerHTML = hits.map(function (e) {
       var url = window.DEVICES_BASE + encodeURIComponent(e.group) + "/" + encodeURIComponent(e.model) + "/";
       var cnt = fwTpl.replace("{n}", e.firmwareCount == null ? "" : e.firmwareCount);
