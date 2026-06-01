@@ -12,7 +12,6 @@
   <main class="responsive">
     {{ block "main" . }}{{ end }}
   </main>
-  {{ partial "footer.html" . }}
 
   <dialog class="bottom" id="langModal">
     <h5>Language · 言語 · 语言</h5>
@@ -41,8 +40,8 @@
     window.CDN_BASE = {{ .Site.Params.cdnBase }};
     window.DEVICES_BASE = {{ "devices/" | absLangURL }};
     window.I18N = {
-      dlOriginal: {{ i18n "download_original" | jsonify }},
-      dlMirror: {{ i18n "download_mirror" | jsonify }}
+      dlOriginal: {{ i18n "download_original" }},
+      dlMirror: {{ i18n "download_mirror" }}
     };
   </script>
   {{ with resources.Get "js/app.js" }}{{ $j := . | fingerprint }}<script src="{{ $j.RelPermalink }}"></script>{{ end }}
