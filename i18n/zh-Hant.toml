@@ -1,0 +1,88 @@
+[site_title]
+other = "Android OTA 封存庫"
+[tagline]
+other = "瀏覽並下載已封存的 Android OTA 韌體"
+[nav_home]
+other = "首頁"
+[nav_devices]
+other = "裝置"
+[nav_search]
+other = "搜尋"
+[search_placeholder]
+other = "搜尋機型、版本、修補程式或說明"
+[search_hint]
+other = "輸入即可跨所有裝置搜尋。"
+[search_no_results]
+other = "沒有符合的裝置。"
+[all_devices]
+other = "所有裝置"
+[manufacturer]
+other = "製造商"
+[firmware_count]
+other = "{{ .count }} 個韌體"
+[latest_patch]
+other = "最新修補程式"
+[build]
+other = "版本"
+[security_patch]
+other = "安全性修補程式"
+[sdk]
+other = "SDK"
+[size]
+other = "大小"
+[ota_type]
+other = "類型"
+[type_full]
+other = "完整"
+[type_incremental]
+other = "增量"
+[download]
+other = "下載"
+[download_original]
+other = "Google OTA"
+[download_mirror]
+other = "archive.org（鏡像）"
+[copy_url]
+other = "複製連結"
+[release_notes]
+other = "更新說明"
+[updates_from]
+other = "更新自"
+[installs_build]
+other = "安裝"
+[no_firmware]
+other = "暫無韌體。"
+[verified]
+other = "已驗證"
+[data_source]
+other = "資料透過 jsDelivr 由 ota-archive 儲存庫提供。"
+[updated]
+other = "建置日期"
+[model_count]
+other = "{{ .count }} 款"
+[codename]
+other = "代號"
+[product]
+other = "產品名稱"
+[android]
+other = "Android 版本"
+[period]
+other = "建置日期"
+[latest_build]
+other = "最新版本"
+[model_no]
+other = "型號"
+[device_info]
+other = "裝置資訊"
+[firmware]
+other = "韌體"
+[close]
+other = "關閉"
+[download_source]
+other = "選擇下載來源"
+[app_cta_title]
+other = "找不到韌體？"
+[app_cta_text]
+other = "App 可透過 Google OTA 直接從你的裝置查詢。"
+[get_app]
+other = "取得應用程式"

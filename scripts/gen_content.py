@@ -15,12 +15,13 @@ import sys
 OTA_ROOT = (len(sys.argv) > 1 and sys.argv[1]) or os.environ.get("OTA_ROOT") \
     or "../ota-archive/OTA/Google"
 OUT = "content"
-LANGS = ["en", "ja", "zh"]
+LANGS = ["en", "ja", "zh", "zh-Hant"]
 
 SEC_TITLE = {
-    "devices": {"en": "All devices", "ja": "すべての機種", "zh": "所有设备"},
-    "search": {"en": "Search", "ja": "検索", "zh": "搜索"},
-    "home": {"en": "Android OTA Archive", "ja": "Android OTA アーカイブ", "zh": "Android OTA 存档"},
+    "devices": {"en": "All devices", "ja": "すべての機種", "zh": "所有设备", "zh-Hant": "所有裝置"},
+    "search": {"en": "Search", "ja": "検索", "zh": "搜索", "zh-Hant": "搜尋"},
+    "home": {"en": "Android OTA Archive", "ja": "Android OTA アーカイブ",
+             "zh": "Android OTA 存档", "zh-Hant": "Android OTA 封存庫"},
 }
 
 
