@@ -2,8 +2,15 @@
 <li>
   <div class="max">
     <a href="{{ $p.Permalink }}"><span class="bold">{{ $p.Params.buildId }}</span></a>
+    <nav class="wrap tiny-margin">
+      {{ with $p.Params.otaType }}<span class="chip tiny {{ if eq . "full" }}primary{{ else }}secondary{{ end }}">{{ if eq . "full" }}{{ i18n "type_full" }}{{ else }}{{ i18n "type_incremental" }}{{ end }}</span>{{ end }}
+      {{ with $p.Params.abType }}<span class="chip tiny"><i>{{ if eq . "AB" }}sync{{ else }}sd_card{{ end }}</i><span>{{ if eq . "AB" }}{{ i18n "ab_seamless" }}{{ else }}{{ i18n "ab_block" }}{{ end }}</span></span>{{ end }}
+      {{ if $p.Params.hasFirmware }}<span class="chip tiny"><i>memory</i><span>{{ i18n "has_firmware" }}</span></span>{{ end }}
+      {{ if $p.Params.hasApex }}<span class="chip tiny"><i>deployed_code</i><span>{{ i18n "has_apex" }}</span></span>{{ end }}
+      {{ if $p.Params.archiveUrls }}<span class="chip tiny"><i>inventory_2</i><span>{{ i18n "verified" }}</span></span>{{ end }}
+    </nav>
     <div class="small-text muted">
-      {{ with $p.Params.otaType }}{{ if eq . "full" }}{{ i18n "type_full" }}{{ else }}{{ i18n "type_incremental" }}{{ end }} · {{ end }}{{ with $p.Params.abType }}{{ if eq . "AB" }}A/B{{ else }}{{ i18n "ab_block" }}{{ end }} · {{ end }}{{ $p.Params.securityPatch | default "—" }} · SDK {{ $p.Params.sdk | default "—" }} · {{ partial "bytes.html" $p.Params.sizeBytes }}
+      {{ $p.Params.securityPatch | default "—" }} · SDK {{ $p.Params.sdk | default "—" }} · {{ partial "bytes.html" $p.Params.sizeBytes }}
     </div>
   </div>
   <button class="button small" onclick="openDownload(this)"
