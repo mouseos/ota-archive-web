@@ -5,6 +5,9 @@
 <h4 class="small">{{ .Params.displayModel }} — {{ .Params.buildId }}</h4>
 <nav class="wrap small-margin">
   {{ if .Params.otaType }}<a class="chip {{ if eq .Params.otaType "full" }}primary{{ else }}secondary{{ end }}">{{ if eq .Params.otaType "full" }}{{ i18n "type_full" }}{{ else }}{{ i18n "type_incremental" }}{{ end }}</a>{{ end }}
+  {{ if .Params.abType }}<a class="chip"><i>{{ if eq .Params.abType "AB" }}sync{{ else }}sd_card{{ end }}</i><span>{{ if eq .Params.abType "AB" }}{{ i18n "ab_seamless" }}{{ else }}{{ i18n "ab_block" }}{{ end }}</span></a>{{ end }}
+  {{ if .Params.hasFirmware }}<a class="chip"><i>memory</i><span>{{ i18n "has_firmware" }}</span></a>{{ end }}
+  {{ if .Params.hasApex }}<a class="chip"><i>deployed_code</i><span>{{ i18n "has_apex" }}</span></a>{{ end }}
   {{ with .Params.source }}<a class="chip small"><i>verified</i><span>{{ i18n "verified" }} · {{ . }}</span></a>{{ end }}
 </nav>
 
@@ -19,6 +22,9 @@
       <tr><td>{{ i18n "security_patch" }}</td><td>{{ .Params.securityPatch | default "—" }}</td></tr>
       <tr><td>{{ i18n "sdk" }}</td><td>{{ .Params.sdk | default "—" }}</td></tr>
       <tr><td>{{ i18n "size" }}</td><td>{{ partial "bytes.html" .Params.sizeBytes }}</td></tr>
+      {{ if .Params.abType }}<tr><td>{{ i18n "install_method" }}</td><td>{{ if eq .Params.abType "AB" }}{{ i18n "ab_seamless" }} (A/B){{ else if eq .Params.abType "BLOCK" }}{{ i18n "ab_block" }} (block){{ else }}{{ .Params.abType }}{{ end }}</td></tr>{{ end }}
+      {{ with .Params.partitions }}<tr><td>{{ i18n "partitions" }}</td><td>{{ range . }}<a class="chip tiny no-margin">{{ . }}</a> {{ end }}</td></tr>{{ end }}
+      {{ if gt (.Params.requiredCacheBytes | default 0) 0 }}<tr><td>{{ i18n "required_cache" }}</td><td>{{ partial "bytes.html" .Params.requiredCacheBytes }}</td></tr>{{ end }}
       <tr><td>{{ i18n "updated" }}</td><td>{{ .Date.Format "2006-01-02" }}</td></tr>
     </tbody>
   </table>

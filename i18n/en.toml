@@ -85,6 +85,21 @@ other = "Close"
 [download_source]
 other = "Choose download source"
 
+[ab_seamless]
+other = "Seamless A/B"
+[ab_block]
+other = "Non-A/B"
+[has_firmware]
+other = "Includes radio/firmware"
+[has_apex]
+other = "Includes APEX"
+[install_method]
+other = "Install method"
+[partitions]
+other = "Updated partitions"
+[required_cache]
+other = "Required cache"
+
 [app_cta_title]
 other = "Can't find your firmware?"
 [app_cta_text]

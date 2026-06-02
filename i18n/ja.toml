@@ -85,6 +85,21 @@ other = "閉じる"
 [download_source]
 other = "ダウンロード元を選択"
 
+[ab_seamless]
+other = "シームレス A/B"
+[ab_block]
+other = "非A/B"
+[has_firmware]
+other = "ラジオ/ファーム同梱"
+[has_apex]
+other = "APEX 同梱"
+[install_method]
+other = "インストール方式"
+[partitions]
+other = "更新パーティション"
+[required_cache]
+other = "必要キャッシュ"
+
 [app_cta_title]
 other = "お探しのファームウェアが見つからない場合"
 [app_cta_text]

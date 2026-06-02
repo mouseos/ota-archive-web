@@ -85,6 +85,21 @@ other = "关闭"
 [download_source]
 other = "选择下载源"
 
+[ab_seamless]
+other = "无缝 A/B"
+[ab_block]
+other = "非 A/B"
+[has_firmware]
+other = "含基带/固件"
+[has_apex]
+other = "含 APEX"
+[install_method]
+other = "安装方式"
+[partitions]
+other = "更新分区"
+[required_cache]
+other = "所需缓存"
+
 [app_cta_title]
 other = "找不到固件？"
 [app_cta_text]

@@ -3,7 +3,7 @@
   <div class="max">
     <a href="{{ $p.Permalink }}"><span class="bold">{{ $p.Params.buildId }}</span></a>
     <div class="small-text muted">
-      {{ with $p.Params.otaType }}{{ if eq . "full" }}{{ i18n "type_full" }}{{ else }}{{ i18n "type_incremental" }}{{ end }} · {{ end }}{{ $p.Params.securityPatch | default "—" }} · SDK {{ $p.Params.sdk | default "—" }} · {{ partial "bytes.html" $p.Params.sizeBytes }}
+      {{ with $p.Params.otaType }}{{ if eq . "full" }}{{ i18n "type_full" }}{{ else }}{{ i18n "type_incremental" }}{{ end }} · {{ end }}{{ with $p.Params.abType }}{{ if eq . "AB" }}A/B{{ else }}{{ i18n "ab_block" }}{{ end }} · {{ end }}{{ $p.Params.securityPatch | default "—" }} · SDK {{ $p.Params.sdk | default "—" }} · {{ partial "bytes.html" $p.Params.sizeBytes }}
     </div>
   </div>
   <button class="button small" onclick="openDownload(this)"

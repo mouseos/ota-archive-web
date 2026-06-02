@@ -80,6 +80,21 @@ other = "韌體"
 other = "關閉"
 [download_source]
 other = "選擇下載來源"
+[ab_seamless]
+other = "無縫 A/B"
+[ab_block]
+other = "非 A/B"
+[has_firmware]
+other = "含基頻/韌體"
+[has_apex]
+other = "含 APEX"
+[install_method]
+other = "安裝方式"
+[partitions]
+other = "更新分割區"
+[required_cache]
+other = "所需快取"
+
 [app_cta_title]
 other = "找不到韌體？"
 [app_cta_text]
